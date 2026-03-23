@@ -392,13 +392,10 @@ export const BLOG_PREVIEWS: BlogPreview[] = [
 ];
 
 // ─── Lab-wide stats ────────────────────────────────────────────────────────────
-
-export const LAB_STATS = [
-  { label: "Researchers", value: "30+", icon: "Users", description: "Active lab members" },
-  { label: "Publications", value: "100+", icon: "BookOpen", description: "Peer-reviewed papers" },
-  { label: "Active Projects", value: "9+", icon: "FlaskConical", description: "Ongoing research" },
-  { label: "Collaborators", value: "10+", icon: "Handshake", description: "Global partnerships" },
-];
+// These are now computed server-side by /api/stats and fetched by lab-stats.tsx.
+// This export is kept for backwards compatibility but is no longer consumed by
+// any component; real numbers come from members-data.ts + publications-data.ts.
+export const LAB_STATS: never[] = [];
 
 // ─── Lab identity ──────────────────────────────────────────────────────────────
 

@@ -188,9 +188,9 @@ export default function ContactPage() {
                   <div>
                     <p className="font-semibold text-foreground">Office Address</p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Department of Computer Science<br />
-                      123 University Avenue, Building C, Room 412<br />
-                      San Francisco, CA 94105, USA
+                      Digital Center<br />
+                      1 Ta Quang Buu Building, Room 905<br />
+                      Hanoi University of Science and Technology, Hanoi, Vietnam
                     </p>
                   </div>
                 </div>

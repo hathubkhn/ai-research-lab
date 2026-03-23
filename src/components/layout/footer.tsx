@@ -11,7 +11,7 @@ const footerLinks = {
   ],
   Resources: [
     { label: "Blog", href: "/blog" },
-    { label: "Publications", href: "/research#publications" },
+    { label: "Publications", href: "/publications" },
     { label: "Datasets", href: "/research#datasets" },
     { label: "Open Source", href: "https://github.com", external: true },
   ],

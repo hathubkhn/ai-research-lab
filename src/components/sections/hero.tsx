@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { LabStats } from "@/lib/compute-stats";
 
 const floatingOrbs = [
   { size: 300, x: "70%", y: "20%", color: "from-blue-600/30 to-cyan-400/20", delay: 0 },
@@ -12,7 +13,19 @@ const floatingOrbs = [
   { size: 150, x: "10%", y: "70%", color: "from-cyan-500/20 to-blue-300/10", delay: 2 },
 ];
 
-export function Hero() {
+const STAT_LABELS: { key: keyof LabStats; label: string }[] = [
+  { key: "researchers", label: "Researchers" },
+  { key: "publications", label: "Publications" },
+  { key: "activeProjects", label: "Active Projects" },
+  { key: "collaborators", label: "Collaborators" },
+];
+
+interface HeroProps {
+  stats: LabStats;
+}
+
+export function Hero({ stats }: HeroProps) {
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
       {/* Animated grid overlay */}
@@ -119,15 +132,10 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="mt-4 flex gap-8"
               >
-                {[
-                  { value: "30+", label: "Researchers" },
-                  { value: "100+", label: "Publications" },
-                  { value: "9+", label: "Active Projects" },
-                  { value: "10+", label: "Collaborators" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-xs text-slate-400">{stat.label}</div>
+                {STAT_LABELS.map((s) => (
+                  <div key={s.label}>
+                    <div className="text-2xl font-bold text-white">{stats[s.key]}</div>
+                    <div className="text-xs text-slate-400">{s.label}</div>
                   </div>
                 ))}
               </motion.div>
