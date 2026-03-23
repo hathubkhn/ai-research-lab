@@ -1,25 +1,17 @@
-import { auth } from "@/lib/auth";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/auth.config";
 
-export default auth((req) => {
-  const { pathname } = req.nextUrl;
-
-  // Protect all admin routes except login
-  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    if (!req.auth) {
-      const loginUrl = new URL("/admin/login", req.url);
-      return NextResponse.redirect(loginUrl);
-    }
-  }
-
-  // Redirect authenticated users away from login page
-  if (pathname === "/admin/login" && req.auth) {
-    return NextResponse.redirect(new URL("/admin", req.url));
-  }
-
-  return NextResponse.next();
-});
+/**
+ * Middleware runs on Vercel Edge Runtime (1 MB limit).
+ * We intentionally import only authConfig — which has zero Node.js-only
+ * dependencies — so Prisma, bcrypt, and the PrismaAdapter are never
+ * bundled into this file.
+ *
+ * Route protection logic lives in authConfig.callbacks.authorized.
+ * The full NextAuth config (with PrismaAdapter) is in src/lib/auth.ts
+ * and is only used in Node.js server contexts.
+ */
+export default NextAuth(authConfig).auth;
 
 export const config = {
   matcher: ["/admin/:path*"],
