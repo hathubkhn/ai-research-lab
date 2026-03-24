@@ -215,7 +215,7 @@ export default function ContactPage() {
                   <div>
                     <p className="font-semibold text-foreground">Phone</p>
                     <a href="tel:+14155550123" className="mt-1 text-sm text-primary hover:underline">
-                      +1 (415) 555-0123
+                      +84 936328990
                     </a>
                     <p className="text-xs text-muted-foreground">Mon–Fri, 9 AM – 5 PM PST</p>
                   </div>

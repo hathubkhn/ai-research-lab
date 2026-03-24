@@ -50,6 +50,7 @@ function ToolbarButton({ onClick, active, disabled, title, children }: ToolbarBu
 
 export function RichTextEditor({ content, onChange, placeholder }: RichTextEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         codeBlock: false,

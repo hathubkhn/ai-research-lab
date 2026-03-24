@@ -43,11 +43,20 @@ export const metadata: Metadata = {
     siteName: "AppliedAI-Lab",
     title: "AppliedAI-Lab — AI for Bioinformatics, Time Series & Materials",
     description: "Applying state-of-the-art AI to bioinformatics, time series analysis, and materials design.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AppliedAI-Lab — AI for Bioinformatics, Time Series & Materials",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AppliedAI-Lab — AI for Bioinformatics, Time Series & Materials",
     description: "Applying state-of-the-art AI to bioinformatics, time series analysis, and materials design.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
