@@ -13,7 +13,7 @@ type Post = {
   slug: string;
   excerpt: string | null;
   coverImage: string | null;
-  publishedAt: string | null;
+  publishedAt: Date | string | null;
   readTime: number | null;
   featured: boolean;
   author: { name: string | null; email: string };
@@ -37,7 +37,7 @@ export default function BlogList({ posts }: { posts: Post[] }) {
     return matchSearch && matchTag;
   });
 
-  function formatDate(d: string | null) {
+  function formatDate(d: Date | string | null) {
     if (!d) return "—";
     return new Date(d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   }
